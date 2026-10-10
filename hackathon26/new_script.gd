@@ -1,6 +1,5 @@
 extends Node
 
-#6767676767
 #420420420420420
 #e[d[sfssfhiodgv;jd;fiohbdflb
 # Called when the node enters the scene tree for the first time.
