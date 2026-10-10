@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://df23ja1uunomt"]
+
+[ext_resource type="Shader" uid="uid://bop0436d2tdd3" path="res://pixel.gdshader" id="1_ig7tw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ig7tw"]
+sky_material = SubResource("ProceduralSkyMaterial_7dm0k")
+
+[sub_resource type="Environment" id="Environment_0xm2m"]
+background_mode = 2
+sky = SubResource("Sky_ig7tw")
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_4kutc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
+shader = ExtResource("1_ig7tw")
+
+[sub_resource type="QuadMesh" id="QuadMesh_fgepr"]
+size = Vector2(1280, 720)
+center_offset = Vector3(640, 360, 0)
+
+[node name="Main" type="Node3D" unique_id=1729171603]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=149222262]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=942744725]
+environment = SubResource("Environment_0xm2m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=869017962]
+mesh = SubResource("BoxMesh_4kutc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1875958485]
+texture_filter = 1
+material = SubResource("ShaderMaterial_h2yge")
+mesh = SubResource("QuadMesh_fgepr")
